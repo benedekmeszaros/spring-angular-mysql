@@ -1,0 +1,57 @@
+.dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--col-base-60);
+  border-radius: 15px;
+  padding: 25px;
+  z-index: 1;
+  min-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--col-dark-30);
+}
+
+form textarea {
+  resize: none;
+  min-height: 150px;
+}
+
+.utils {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.utils .btn {
+  width: 100%;
+}
+
+.utils input[type="button"].btn {
+  background-color: var(--col-base-30);
+}
+
+.utils input[type="button"].btn:hover {
+  background-color: var(--col-light-30);
+}

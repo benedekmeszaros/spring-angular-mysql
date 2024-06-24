@@ -1,0 +1,61 @@
+.dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--col-base-60);
+  border-radius: 15px;
+  padding: 25px;
+  min-width: 400px;
+  z-index: 1;
+}
+
+.info {
+  color: var(--col-base-30);
+  margin-bottom: 10px;
+  max-width: 400px;
+  text-align: center;
+  overflow: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--col-dark-30);
+}
+
+.utils {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.utils .btn {
+  width: 100%;
+}
+
+.utils input[type="button"].btn {
+  background-color: var(--col-base-30);
+}
+
+.utils input[type="button"].btn:hover {
+  background-color: var(--col-light-30);
+}

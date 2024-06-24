@@ -1,0 +1,11 @@
+<div class="dialog">
+    <div class="cover" (click)="dialogRef.close()"></div>
+    <form>
+        <h2>{{data.topic}}</h2>
+        <p>{{data.description}}</p>
+        <div class="utils">
+            <input class="btn" type="button" [value]="data.cancelLabel" (click)="onCancel()" [disabled]="isDisabled">
+            <input class="btn" type="button" [value]="data.acceptLabel" (click)="onAccept()" [disabled]="isDisabled">
+        </div>
+    </form>
+</div>

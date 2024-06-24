@@ -1,0 +1,17 @@
+<div class="dialog">
+    <div class="cover" (click)="onClose()"></div>
+    <form (submit)="onSubmit($event)" [formGroup]="submitForm">
+        <h2>New Board</h2>
+        <p class="error" *ngIf="errorResponse.isActive">{{errorResponse.message}}</p>
+        <label for="title">Title</label>
+        <input id="title" class="inp" type="text" formControlName="title" placeholder="Enter a Title">
+        <p *ngIf="title.touched && title.errors?.['required']">Board must have a Title.</p>
+        <label for="description">Description</label>
+        <textarea id="description" class="inp" formControlName="description"
+            placeholder="Write a Description"></textarea>
+        <div class="utils">
+            <input class="btn" type="button" value="Cancel" (click)="onClose()">
+            <input class="btn" type="submit" value="Create" [disabled]="!submitForm.valid">
+        </div>
+    </form>
+</div>

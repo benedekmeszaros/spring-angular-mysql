@@ -1,0 +1,17 @@
+<div class="dialog">
+    <div class="cover" (click)="onClose()"></div>
+    <form (submit)="onSubmit($event)" [formGroup]="submitForm">
+        <h2>Change Username</h2>
+        <p class="info">Enter your custom username.</p>
+        <label for="username">Username</label>
+        <input id="username" class="inp" type="text" formControlName="username" placeholder="Enter a Username">
+        <p *ngIf="username.touched && username.errors?.['required']">Username can not be empty.</p>
+        <p *ngIf="username.touched && username.errors?.['minlength']">Username name must be at least 3 charactesr long.
+        </p>
+        <div class="utils">
+            <input class="btn" type="button" value="Cancel" (click)="onClose()">
+            <input class="btn" type="submit" value="Update"
+                [disabled]="!submitForm.valid || data.username == username.value">
+        </div>
+    </form>
+</div>

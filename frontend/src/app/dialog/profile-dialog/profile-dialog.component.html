@@ -1,0 +1,12 @@
+<div class="dialog">
+    <div class="cover" (click)="onClose()"></div>
+    <div class="container">
+        <div class="avatar">
+            <img [src]="data.user.avatar" [alt]="data.user.fullName[0].toUpperCase()">
+        </div>
+        <h3>{{data.user.fullName}}</h3>
+        <p>{{data.user.email}}</p>
+        <div class="line"></div>
+        <p> Joined at: {{data.user.createdAt | date:'yyyy:MM:dd'}}</p>
+    </div>
+</div>

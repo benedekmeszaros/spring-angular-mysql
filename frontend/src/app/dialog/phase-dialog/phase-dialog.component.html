@@ -1,0 +1,19 @@
+<div class="dialog">
+    <div class="cover" (click)="onClose()"></div>
+    <form (submit)="onSubmit($event)" [formGroup]="submitForm">
+        <h2>{{data.phase? "Phase Details":"New Phase"}}</h2>
+        <p class="error" *ngIf="errorResponse.isActive">{{errorResponse.message}}</p>
+        <label for="label">Label</label>
+        <input id="label" class="inp" type="text" formControlName="label" placeholder="Enter a Label">
+        <p *ngIf="label.touched && label.errors?.['required']">Label can not be empty.</p>
+
+        <label for="description">Description</label>
+        <textarea id="description" class="inp" formControlName="description"
+            placeholder="Write a Description"></textarea>
+        <div class="utils">
+            <input class="btn" type="button" value="Cancel" (click)="onClose()">
+            <input class="btn" type="submit" [value]="data.phase? 'Update':'Add'"
+                [disabled]="!data.editable || !submitForm.valid || data.phase.label == label.value">
+        </div>
+    </form>
+</div>

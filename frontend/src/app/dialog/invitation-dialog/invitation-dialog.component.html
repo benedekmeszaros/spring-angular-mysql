@@ -1,0 +1,28 @@
+<div class="dialog">
+    <div class="cover" (click)="onClose()"></div>
+    <form (submit)="onSubmit($event)" [formGroup]="submitForm">
+        <h2>{{isUpdate? 'Update Member':'Invite Member'}}</h2>
+        <p class="info">{{isUpdate? 'You can change user\'s access.':'Enter a know email address.'}}</p>
+        <p class="error" *ngIf="errorResponse.isActive">{{errorResponse.message}}</p>
+        <div class="utils" style="margin-bottom: 10px;">
+            <input id="email" class="inp" type="email" formControlName="email" placeholder="Enter an Email adress">
+            <div class="dropdown" [cdkMenuTriggerFor]="menu">
+                <p [ngClass]="access === 'Access'? 'default':''">{{access}}</p>
+                <ng-icon class="arrow" name="heroChevronLeft" size="20"></ng-icon>
+            </div>
+        </div>
+        <div class="utils">
+            <input class="btn" type="button" value="Cancel" (click)="onClose()">
+            <input class="btn" type="submit" [value]="isUpdate? 'Update':'Invite'"
+                [disabled]="!enabled || !submitForm.valid">
+        </div>
+    </form>
+</div>
+
+<ng-template #menu>
+    <div class="menu" cdkMenu>
+        <div class="item" cdkMenuItem (click)="setAccess('Owner')">Owner</div>
+        <div class="item" cdkMenuItem (click)="setAccess('Editor')">Editor</div>
+        <div class="item" cdkMenuItem (click)="setAccess('Viewer')">Viewer</div>
+    </div>
+</ng-template>
