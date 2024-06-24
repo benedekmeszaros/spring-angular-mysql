@@ -1,0 +1,10 @@
+<div class="editor" *ngIf="!isLoading">
+    <app-sidebar [label]="title">
+        <app-sidebar-nav link="editor" icon="heroPencilSquare">Editor</app-sidebar-nav>
+        <app-sidebar-nav link="details" icon="heroInformationCircle">Details</app-sidebar-nav>
+        <app-sidebar-nav link="members" icon="heroUsers">Members</app-sidebar-nav>
+        <div class="line"></div>
+        <app-sidebar-nav link=".." icon="heroRectangleGroup" [style]="''">Projects</app-sidebar-nav>
+    </app-sidebar>
+    <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+</div>

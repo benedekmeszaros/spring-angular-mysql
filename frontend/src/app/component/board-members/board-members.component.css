@@ -1,0 +1,56 @@
+:host {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  margin-left: 50px;
+}
+
+.boards-members {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+
+h2 {
+  white-space: nowrap;
+  font-weight: 400;
+  color: var(--col-base-30);
+  font-size: 35px;
+}
+
+.line {
+  height: 2px;
+  width: 100%;
+  background-color: rgb(160, 160, 160);
+}
+
+.members {
+  background-color: var(--col-dark-60);
+  height: 100%;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+  width: 100%;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+}

@@ -1,0 +1,16 @@
+<h2>{{invitation.board.title}}</h2>
+<div class="users">
+    <ng-icon name="heroUsers" size="20"></ng-icon>
+    <p>{{invitation.board.members.length}}</p>
+</div>
+<div class="user">
+    <div class="avatar">
+        <img [src]="invitation.board.owner.avatar" [alt]="invitation.board.owner.fullName[0].toUpperCase()">
+    </div>
+    <h3>&#64;{{invitation.board.owner.fullName}}</h3>
+</div>
+<p>Expires at: {{invitation.expireAt | date : 'yyyy.MM.dd HH:mm'}}</p>
+<div class="utils">
+    <button class="btn" (click)="onDeny()">Deny</button>
+    <button class="btn" (click)="onAccept()">Accept</button>
+</div>

@@ -1,0 +1,32 @@
+.dashboard {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 15px 50px 15px 15px;
+}
+
+.line {
+  background-color: rgb(160, 160, 160);
+  height: 2px;
+  margin: 17px 0px;
+  position: relative;
+}
+
+.line > p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 18px;
+  font-weight: 400;
+  transform: translate(-50%, -50%);
+  background-color: var(--col-base-60);
+  text-transform: uppercase;
+  padding: 0px 10px;
+  color: rgb(117, 117, 117);
+  user-select: none;
+}
+
+.links {
+  height: 100%;
+  overflow-y: auto;
+}

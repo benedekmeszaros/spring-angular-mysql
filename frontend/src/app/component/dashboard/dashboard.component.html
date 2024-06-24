@@ -1,0 +1,14 @@
+<div class="dashboard">
+    <app-sidebar label="Dashboard">
+        <app-sidebar-nav link="profile" icon="heroUser">Profile</app-sidebar-nav>
+        <app-sidebar-nav link="boards" icon="heroRectangleGroup">Projects</app-sidebar-nav>
+        <div class="line">
+            <p>Projects</p>
+        </div>
+        <div class="links">
+            <app-sidebar-nav *ngFor="let board of boards" [link]="'boards/'+board.id" icon="heroArrowTopRightOnSquare"
+                size="23">{{board.title}}</app-sidebar-nav>
+        </div>
+    </app-sidebar>
+    <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+</div>

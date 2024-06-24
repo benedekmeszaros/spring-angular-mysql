@@ -1,0 +1,30 @@
+<li class="phase">
+    <ng-icon class="options" name="heroEllipsisVertical" size="30" [cdkMenuTriggerFor]="menu"></ng-icon>
+    <ng-template #menu>
+        <div class="menu" cdkMenu>
+            <div class="item" cdkMenuItem (click)="showDetails()">
+                <ng-icon name="heroInformationCircle" size="20"></ng-icon>
+                <p>Details</p>
+            </div>
+            <div class="item" cdkMenuItem (click)="showRemoveDialog()" [ngClass]="hasAccess(['OWNER'])? '':'disabled'">
+                <ng-icon name="heroXCircle" size="20"></ng-icon>
+                <p>Remove</p>
+            </div>
+        </div>
+    </ng-template>
+
+    <h3 cdkDragHandle>{{phase.label}}</h3>
+    <ul cdkDropList [cdkDropListData]="phase.tasks" [id]="id" (cdkDropListDropped)="drop($event)">
+        <app-task *ngFor="let task of phase.tasks" [task]="task" [boardId]="boardId" [phaseId]="phase.id"
+            (onRemoved)="onRemoveTask($event)" (onUpdated)="onArranged.emit()"
+            [cdkDragDisabled]="!hasAccess(['OWNER','EDITOR'])" [access]="access" cdkDrag></app-task>
+    </ul>
+    <div *ngIf="!isAddTaskVisible && access === 'OWNER'" class="btn-add-task" (click)="showAddTask()">
+        <ng-icon name="heroPlus" size="20" strokeWidth="3"></ng-icon>
+        <p>Add Task</p>
+    </div>
+    <form *ngIf="isAddTaskVisible" [formGroup]="addTaskForm" (ngSubmit)="addTask()">
+        <input #inputField type="text" class="inp" placeholder="label" formControlName="label" (blur)="hideAddTask()">
+        <input type="submit" class="btn" value="Add" (mousedown)="addTask()" [disabled]="!addTaskForm.valid">
+    </form>
+</li>

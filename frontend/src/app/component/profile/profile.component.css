@@ -1,0 +1,132 @@
+:host {
+  width: 100%;
+  height: 100%;
+  padding-top: 25px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+
+h2 {
+  white-space: nowrap;
+  font-weight: 400;
+  color: var(--col-base-30);
+  font-size: 35px;
+}
+
+.line {
+  height: 2px;
+  width: 100%;
+  background-color: rgb(160, 160, 160);
+}
+
+.options {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  color: var(--col-base-10);
+  cursor: pointer;
+}
+
+.owner {
+  background-color: var(--col-base-30);
+  border-radius: 15px;
+  padding: 30px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 30px;
+  position: relative;
+}
+
+.owner h3 {
+  font-size: 32px;
+}
+
+.owner p {
+  font-size: 18px;
+}
+
+.avatar {
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+}
+
+.avatar > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--col-base-10);
+  font-size: 96px;
+  font-weight: 600;
+}
+
+.overlayer {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 150px;
+  width: 150px;
+  opacity: 0;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.overlayer:hover {
+  opacity: 1;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+
+.info .line {
+  background-color: var(--col-base-10);
+  height: 4px;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+
+.projects {
+  height: 100%;
+  background-color: var(--col-dark-60);
+  border-radius: 15px;
+  padding: 25px;
+  gap: 25px;
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  max-height: 215px;
+  align-items: center;
+}

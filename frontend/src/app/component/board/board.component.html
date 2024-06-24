@@ -1,0 +1,18 @@
+<div *ngIf="board" class="board">
+    <div class="info">
+        <p class="access">{{user.id === board.owner.id? "MAIN":""}} {{access}}</p>
+        <p class="date">{{prefix}} at {{board.updatedAt | date:'fullDate'}} {{board.updatedAt | date:'HH:mm:ss'}} by
+            <b>&#64;{{board.updatedBy.fullName}}</b>
+        </p>
+    </div>
+    <ul *ngIf="board" cdkDropListGroup cdkDropListOrientation="horizontal" cdkDropList [cdkDropListData]="board.phases"
+        (cdkDropListDropped)="drop($event)">
+        <app-phase *ngFor="let phase of board?.phases" [phase]="phase" (onArranged)="onArrange()"
+            (onRemoved)="onPhaseRemoved($event)" [boardId]="board.id" [access]="access"
+            [cdkDragDisabled]="access != 'OWNER'" cdkDrag></app-phase>
+        <div *ngIf="hasAccess(['OWNER'])" class="btn-add-phase" (click)="showPhaseDialog()">
+            <ng-icon name="heroPlus" size="20" strokeWidth="3"></ng-icon>
+            <p>Add Phase</p>
+        </div>
+    </ul>
+</div>

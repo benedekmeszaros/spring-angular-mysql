@@ -1,0 +1,37 @@
+<div class="promo">
+    <img src="assets/promo.jpg">
+    <div class="welcome">
+        <h2>Welcome.</h2>
+        <p>Seamlessly organize, collaborate, and achieve your goals with My Canva. Whether you're managing personal
+            projects or leading a team, our intuitive platform is designed to streamline your workflow and boost your
+            productivity. Dive into a world where every task is tracked, every project is managed, and every goal is
+            within reach.</p>
+    </div>
+</div>
+<div class="panel">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
+        <h2>Login</h2>
+
+        <p class="error" *ngIf="errorResponse.isActive">{{errorResponse.message}}</p>
+
+        <label for="email">Email</label>
+        <input class="inp" type="email" id="email" formControlName="email" placeholder="Enter your Email adress">
+        <p *ngIf="email.touched && email.errors?.['required']">Eamil address required.</p>
+
+        <label for="password">Password</label>
+        <div class="field">
+            <input class="inp" [type]="isPasswordVisible? 'text':'password'" id="password" formControlName="password"
+                placeholder="Enter your Password">
+            <ng-icon [name]="isPasswordVisible? 'heroEyeSlash':'heroEye'" size="25"
+                (click)="toggleVisibility()"></ng-icon>
+            <p *ngIf="password.touched && password.errors?.['required']">You must enter a password.</p>
+        </div>
+
+        <div>
+            <label for="remember" style="margin-right: 5px;">Remember me</label>
+            <input type="checkbox" id="remember" formControlName="remember">
+        </div>
+        <input class="btn" type="submit" value="Login" [disabled]="isLoading || !loginForm.valid">
+    </form>
+    <p>Don't have an account? <a class="link" [routerLink]="['/register']">Registrate</a></p>
+</div>

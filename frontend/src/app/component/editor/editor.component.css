@@ -1,0 +1,12 @@
+.editor {
+  display: flex;
+  height: 100%;
+  padding: 15px 50px 15px 15px;
+}
+
+.line {
+  background-color: rgb(160, 160, 160);
+  height: 2px;
+  margin: 5px 0px;
+  position: relative;
+}

@@ -1,0 +1,28 @@
+<div class="member">
+    <div class="avatar">
+        <img [src]="member.user.avatar" [alt]="member.user.fullName[0].toLocaleUpperCase()">
+    </div>
+    <h3>&#64;{{member.user.fullName}}</h3>
+    <p class="date">Joined at: {{member.joinedAt | date : "yyyy.MM.dd HH:mm:ss"}}</p>
+    <p class="access">{{member.user.id === ownerId ? "MAIN":""}} {{member.access}}</p>
+    <ng-icon class="options" name="heroEllipsisVertical" size="30" [cdkMenuTriggerFor]="menu"></ng-icon>
+</div>
+
+<ng-template #menu>
+    <div class="menu" cdkMenu>
+        <div class="item" cdkMenuItem (click)="showProfielDialog()">
+            <ng-icon name="heroUser" size="20"></ng-icon>
+            <p>Profile</p>
+        </div>
+        <div *ngIf="member.user.id !== ownerId" class="item" cdkMenuItem [ngClass]="hasAccess(['OWNER'])? '':'disabled'"
+            (click)="showUpdateDialog()">
+            <ng-icon name="heroPencilSquare" size="20"></ng-icon>
+            <p>Edit</p>
+        </div>
+        <div *ngIf="member.user.id !== ownerId" class="item" cdkMenuItem [ngClass]="hasAccess(['OWNER'])? '':'disabled'"
+            (click)="showRemoveDialog()">
+            <ng-icon name="heroXCircle" size="20"></ng-icon>
+            <p>Remove</p>
+        </div>
+    </div>
+</ng-template>

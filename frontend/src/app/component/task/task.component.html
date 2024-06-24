@@ -1,0 +1,17 @@
+<li class="task">
+    <p>{{task.label}}</p>
+    <ng-icon class="options" name="heroEllipsisVertical" size="30" [cdkMenuTriggerFor]="menu"></ng-icon>
+    <ng-template #menu>
+        <div class="menu" cdkMenu>
+            <div class="item" cdkMenuItem (click)="showTaskDetails()">
+                <ng-icon name="heroInformationCircle" size="20"></ng-icon>
+                <p>Details</p>
+            </div>
+            <div class="item" cdkMenuItem (click)="showRemoveDialog()"
+                [ngClass]="hasAccess(['OWNER','EDITOR'])? '':'disabled'">
+                <ng-icon name="heroXCircle" size="20"></ng-icon>
+                <p>Remove</p>
+            </div>
+        </div>
+    </ng-template>
+</li>

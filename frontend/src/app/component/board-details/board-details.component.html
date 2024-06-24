@@ -1,0 +1,37 @@
+<div class="boards-details" *ngIf="board">
+    <div class="header">
+        <h2>Details</h2>
+        <div class="line"></div>
+        <div class="btn" *ngIf="user.id === board.owner.id" (click)="showDeleteDialog()">
+            <ng-icon name="heroXCircle" size="20" strokeWidth="2"></ng-icon>
+            <p>Delete</p>
+        </div>
+    </div>
+    <div class="owner">
+        <div class="overlayer" (click)="showProfileDialog()">
+            <ng-icon name="heroUser" size="40" strokeWidth="2"></ng-icon>
+        </div>
+        <div class="avatar">
+            <img [src]="board.owner.avatar" [alt]="board.owner.fullName[0].toLocaleUpperCase()">
+        </div>
+        <div class="info">
+            <h3>&#64;{{board.owner.fullName}}</h3>
+            <p>{{board.owner.email}}</p>
+        </div>
+        <p class="access">MAIN OWNER</p>
+    </div>
+    <form [formGroup]="boardForm" (submit)="showUpdateDialog()">
+        <p class="error" *ngIf="errorResponse.isActive">{{errorResponse.message}}</p>
+        <label for="title">Title</label>
+        <input id="title" class="inp" formControlName="title" type="text" placeholder="Enter a Title">
+        <p *ngIf="title.touched && title.errors?.['required']">Title can not be empty.</p>
+
+        <label for="description">Description</label>
+        <textarea id="description" class="inp" formControlName="description"
+            placeholder="Write a Description"></textarea>
+        <div class="utils" *ngIf="hasAccess(['OWNER'])">
+            <input class="btn" type="button" value="Reset" (click)="resetDetails()" [disabled]="modified()">
+            <input class="btn" type="submit" value="Update" [disabled]="modified() || !boardForm.valid">
+        </div>
+    </form>
+</div>

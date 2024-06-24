@@ -1,0 +1,56 @@
+<div class="promo">
+    <img src="assets/promo.jpg">
+    <div class="welcome">
+        <h2>Welcome.</h2>
+        <p>Seamlessly organize, collaborate, and achieve your goals with My Canva. Whether you're managing personal
+            projects or leading a team, our intuitive platform is designed to streamline your workflow and boost your
+            productivity. Dive into a world where every task is tracked, every project is managed, and every goal is
+            within reach.</p>
+    </div>
+</div>
+<div class="panel">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
+        <h2>Register</h2>
+        <p class="error" *ngIf="errorResponse.isActive">{{errorResponse.message}}</p>
+        <label for="username">Username</label>
+        <input class="inp" id="username" type="text" formControlName="username" placeholder="Enter a Username">
+        <p *ngIf="username.touched && username.errors?.['required']">Username required.</p>
+        <p *ngIf="username.touched && username.errors?.['minlength']">Username must be at least 3 characters
+            long.</p>
+
+        <label for="email">Email</label>
+        <input class="inp" id="email" type="email" formControlName="email" placeholder="Enter an Eamil address">
+        <p *ngIf="email.touched && email.errors?.['required']">Email address required.</p>
+        <p *ngIf="email.touched && email.errors?.['email']">Incorrect email address.</p>
+
+        <label for="password">Password</label>
+        <div class="field">
+            <input class="inp" id="password" [type]="isPasswordVisible? 'text':'password'" formControlName="password"
+                placeholder="Enter a Password">
+            <ng-icon [name]="isPasswordVisible? 'heroEyeSlash':'heroEye'" size="25"
+                (click)="togglePasswordVisibility()"></ng-icon>
+            <p *ngIf="password.touched && password.errors?.['required']">Password required.</p>
+            <p *ngIf="password.touched && password.errors?.['minlength']">Password must be at least 8 characters
+                long.</p>
+            <p *ngIf="password.touched && password.errors?.['pattern']">Password must contain a capital letter and a
+                number.
+            </p>
+        </div>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="field">
+            <input class="inp" id="confirmPassword" [type]="isConfirmPasswordVisible? 'text':'password'"
+                formControlName="confirmPassword" placeholder="Enter a Confirm Password">
+            <ng-icon [name]="isConfirmPasswordVisible? 'heroEyeSlash':'heroEye'" size="25"
+                (click)="toggleConfirmPasswordVisibility()"></ng-icon>
+            <p *ngIf="confirmPassword.touched && confirmPassword.errors?.['required']">Confirm Password required.
+            </p>
+            <p *ngIf="confirmPassword.touched && confirmPassword.errors?.['passwordMismatch']">Confirm Password
+                mismatch.
+            </p>
+        </div>
+
+        <input class="btn" type="submit" value="Registrate" [disabled]="!registerForm.valid">
+    </form>
+    <a class="link" [routerLink]="['/login']">Back</a>
+</div>

@@ -1,0 +1,44 @@
+<div class="profile" *ngIf="user">
+    <div class="owner">
+        <div class="avatar">
+            <img [src]="user.avatar" [alt]="user.fullName[0].toLocaleUpperCase()">
+        </div>
+        <form class="overlayer" enctype="multipart/form-data">
+            <input type="file" #picture (change)="onImageChanged($event)" style="display: none;"
+                accept="image/png, image/jpeg, image/jpg">
+            <ng-icon name="heroPencilSquare" size="72" strokeWidth="2" (click)="uploadImage()"></ng-icon>
+        </form>
+        <div class="info">
+            <h3>&#64;{{user.fullName}}</h3>
+            <p>{{user.email}}</p>
+            <div class="line"></div>
+            <p>Joined at {{user.createdAt | date:'fullDate'}}</p>
+        </div>
+        <ng-icon class="options" name="heroEllipsisVertical" size="40" strokeWidth="2"
+            [cdkMenuTriggerFor]="menu"></ng-icon>
+    </div>
+    <div class="header">
+        <h2>Involved in</h2>
+        <div class="line"></div>
+    </div>
+    <div class="projects">
+        <app-board-entry *ngFor="let board of boards" [board]="board"></app-board-entry>
+    </div>
+</div>
+
+<ng-template #menu>
+    <div class="menu" cdkMenu>
+        <div class="item" cdkMenuItem (click)="showUsernameDialog()">
+            <ng-icon name="heroPencilSquare" size="20"></ng-icon>
+            <p>Change Username</p>
+        </div>
+        <div class="item" cdkMenuItem (click)="showPasswordDialog()">
+            <ng-icon name="heroPencilSquare" size="20"></ng-icon>
+            <p>Change Password</p>
+        </div>
+        <div class="item" cdkMenuItem (click)="showSuspendDialog()">
+            <ng-icon name="heroXCircle" size="20"></ng-icon>
+            <p>Delete Account</p>
+        </div>
+    </div>
+</ng-template>

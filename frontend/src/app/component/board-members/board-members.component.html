@@ -1,0 +1,14 @@
+<div class="boards-members" *ngIf="board">
+    <div class="header">
+        <h2>Members({{board.members.length}})</h2>
+        <div class="line"></div>
+        <div class="btn" *ngIf="access === 'OWNER'" (click)="showInviteDialog()">
+            <ng-icon name="heroPlus" size="20" strokeWidth="2"></ng-icon>
+            <p>Invite</p>
+        </div>
+    </div>
+    <div class="members">
+        <app-member *ngFor="let member of board.members" [member]="member" [access]="access"
+            (onRemoved)="removeMember($event)" [ownerId]="board.owner.id"></app-member>
+    </div>
+</div>

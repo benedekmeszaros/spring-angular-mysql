@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  height: 100%;
+  background-color: var(--col-base-30);
+}
+
+.promo {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.promo > img {
+  height: 100%;
+  object-position: left;
+  object-fit: cover;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.promo h2,
+.promo p {
+  color: white;
+  user-select: none;
+}
+
+.promo p {
+  text-align: justify;
+}
+
+.promo h2 {
+  font-size: 80px;
+}
+
+.promo .welcome {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 30%;
+  left: 50px;
+  width: 500px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+  width: 100%;
+  padding: 50px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--col-base-60);
+}
+
+.panel > form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.panel > form h2 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 400;
+  color: var(--col-base-30);
+  margin-bottom: 10px;
+}
+
+.panel > form .btn {
+  margin-top: 30px;
+}

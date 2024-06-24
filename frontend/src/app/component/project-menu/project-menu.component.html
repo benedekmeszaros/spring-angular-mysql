@@ -1,0 +1,21 @@
+<div class="project-menu">
+    <div class="header">
+        <h2>My Projects</h2>
+        <div class="line"></div>
+    </div>
+    <div class="projects">
+        <div class="btn-add-board" (click)="showCreateBoardDialog()">
+            <ng-icon name="heroPlus" size="40" strokeWidth="3"></ng-icon>
+        </div>
+        <app-board-entry *ngFor="let board of myProjects" [board]="board"></app-board-entry>
+    </div>
+    <div class="header">
+        <h2>Other Projects</h2>
+        <div class="line"></div>
+    </div>
+    <div class="projects">
+        <app-invitation *ngFor="let invitation of invitations" [invitation]="invitation"
+            (onDecision)="removeInvitation($event)"></app-invitation>
+        <app-board-entry *ngFor="let board of otherProjects" [board]="board"></app-board-entry>
+    </div>
+</div>

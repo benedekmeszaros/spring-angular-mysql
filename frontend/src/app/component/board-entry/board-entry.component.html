@@ -1,0 +1,14 @@
+<h2>{{board.title}}</h2>
+<div class="users">
+    <ng-icon name="heroUsers" size="20"></ng-icon>
+    <p>{{board.members.length}}</p>
+</div>
+<div class="user">
+    <div class="avatar">
+        <img [src]="board.owner.avatar" [alt]="board.owner.fullName[0].toUpperCase()">
+    </div>
+    <h3>&#64;{{board.owner.fullName}}</h3>
+</div>
+<p>Updated: {{board.updatedAt | date : 'yyyy.MM.dd HH:mm'}}</p>
+<div class="line"></div>
+<p>{{description}}</p>

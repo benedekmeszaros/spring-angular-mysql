@@ -1,0 +1,88 @@
+:host {
+  background-color: var(--col-base-30);
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border-radius: 15px;
+  padding: 15px 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+  color: var(--col-base-60);
+  position: relative;
+}
+
+:host:hover {
+  background-color: var(--col-light-30);
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  max-width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line {
+  background-color: var(--col-base-10);
+  height: 3px;
+  width: 100%;
+  border-radius: 15px;
+  margin: 5px 0px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user .avatar {
+  background-color: var(--col-base-10);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+}
+
+.user .avatar > img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.users {
+  gap: 5px;
+  position: absolute;
+  align-items: center;
+  display: flex;
+  right: 15px;
+}
+
+.users p {
+  font-size: 20px;
+}

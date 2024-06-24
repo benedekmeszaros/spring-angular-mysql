@@ -1,0 +1,95 @@
+.phase {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+  background-color: var(--col-base-30);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.phase h3 {
+  color: white;
+  cursor: move;
+  font-size: 28px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75%;
+}
+
+:host.cdk-drag-disabled .phase h3 {
+  cursor: default;
+}
+
+.phase > ul {
+  list-style: none;
+  min-height: 50px;
+  background-color: var(--col-dark-30);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.phase > ul .cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 0.15s;
+}
+
+.phase > ul.cdk-drop-list-dragging app-task:not(.cdk-drag-placeholder) {
+  transition: transform 0.15s;
+}
+
+.phase > form {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.phase > form input[type="text"] {
+  width: 100%;
+  margin-bottom: 0px;
+  padding: 5px 10px;
+}
+
+.phase > form .btn {
+  padding: 2px 5px;
+}
+
+.btn-add-task {
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  color: var(--col-base-60);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.btn-add-task:hover {
+  color: white;
+}
+
+:host.cdk-drag-preview > .phase {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.options {
+  position: absolute;
+  right: 10px;
+  color: var(--col-base-10);
+  cursor: pointer;
+}
